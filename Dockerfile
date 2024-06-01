@@ -4,8 +4,6 @@ RUN apt-get update && apt-get -y dist-upgrade \
     rtl-sdr \
     libasound2 \
     libusb-1.0-0 \
-    libhamlib2 \
-    libgps23 \
  && rm -rf /var/lib/apt/lists/*
 
 FROM base as builder
