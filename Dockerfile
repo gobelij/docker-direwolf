@@ -1,4 +1,4 @@
-FROM debian:buster-slim as base
+FROM debian:bookworm-slim as base
 RUN apt-get update && apt-get -y dist-upgrade \
  && apt-get install -y \
     rtl-sdr \
@@ -36,7 +36,7 @@ ENV CALLSIGN "N0CALL"
 ENV PASSCODE "-1"
 ENV IGSERVER "noam.aprs2.net"
 ENV FREQUENCY "144.39M"
-ENV COMMENT "Direwolf in Docker w2bro/direwolf"
+ENV COMMENT "Direwolf in Docker"
 ENV SYMBOL "igate"
 
 RUN mkdir -p /etc/direwolf
