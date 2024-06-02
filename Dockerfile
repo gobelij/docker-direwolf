@@ -27,6 +27,8 @@ RUN git clone "https://github.com/wb2osz/direwolf.git" /tmp/direwolf \
   && make install-conf \
   && find /target/usr/local/bin/ -type f -exec strip -p --strip-debug {} \;
 
+RUN ldconfig
+
 FROM base
 COPY --from=builder /target/usr/local/bin /usr/local/bin
 COPY --from=builder /target/etc/udev/rules.d/99-direwolf-cmedia.rules /etc/udev/rules.d/99-direwolf-cmedia.rules
