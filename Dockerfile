@@ -5,6 +5,7 @@ RUN apt-get update && apt-get -y dist-upgrade \
     libasound2 \
     libusb-1.0-0 \
     libgps28 \
+    libhamlib4 \
  && rm -rf /var/lib/apt/lists/*
 
 FROM base as builder

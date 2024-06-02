@@ -17,6 +17,7 @@ if [ -n "$LATITUDE" -a -n "$LONGITUDE" ]; then
   sed -i "s/%LONGITUDE%/${LONGITUDE}/g" direwolf.conf
   sed -i "s/%SYMBOL%/${SYMBOL}/g" direwolf.conf
   sed -i "s~%COMMENT%~${COMMENT}~g" direwolf.conf
+  sed -i "s/$HEIGHT$/${HEIGHT}/g" direwolf.conf
 else
   echo "LATITUDE & LONGITUDE are required."
   exit 3
@@ -39,5 +40,5 @@ if [ -n "$DW_STANDALONE" ]; then
     exit 4
   fi
 else
-  rtl_fm -f $FREQUENCY -d $(rtl_sdr -d 9999 |& grep -P -o "d(?=:s*.+SN: $APRS_SDR_SERIAL)") | direwolf $DWARGS -c direwolf.conf
+  rtl_fm -f $FREQUENCY -d $APRS_SDR_SERIAL | direwolf $DWARGS -c direwolf.conf
 fi
